@@ -226,11 +226,13 @@ function dispatch(
     }
     const clearTargetsTuple = path[clearTargetsTupleIndex];
 
+    if(clearTargetsTuple) {
     clearTargets =
       (isNode(clearTargetsTuple.target) &&
         isShadowRoot(getRoot(clearTargetsTuple.target))) ||
       (isNode(clearTargetsTuple.relatedTarget) &&
         isShadowRoot(getRoot(clearTargetsTuple.relatedTarget)));
+    }
 
     setEventPhase(eventImpl, Event.CAPTURING_PHASE);
 
